@@ -5,6 +5,7 @@ class Node{
     public:
     int data;
     Node *next;
+    
     Node(int data){
         this->data = data;
         next = nullptr;
@@ -25,27 +26,108 @@ class LinkedList{
 
     // Edit starts here
     // 1 marks
-    void push_end(int ele){}
+    void push_end(int ele){
+        Node *n = new Node(ele);
+        if(tail==nullptr){
+            head = tail = n;
+            size = 1;
+            return;
+        }
+
+        tail->next = n;
+        tail = n;
+
+        size++;
+    }
 
     // 1.5 marks
-    void push_front(int ele){}
+    void push_front(int ele){
+        Node *n = new Node(ele);
+        if(head==nullptr){
+            tail = head = n;
+            size = 1;
+            return;
+        }
+
+        n->next = head;
+        head = n;
+
+        size++;
+    }
 
     // 1 marks
-    void pop_end(){}
+    void pop_end(){
+        if(tail == nullptr){
+            cout<<"List underflow"<<endl;
+            return;
+        }
+
+        if(head == tail){
+            head = tail = nullptr;
+            size = 0;
+            return;
+        }
+
+        Node *p = head;
+
+        while(p->next!=tail){
+            p=p->next;
+        }
+
+        p->next = nullptr;
+        tail = p;
+
+        size--;
+    }
 
     // 1.5 marks
-    void pop_front(){}
+    void pop_front(){
+        if(head==nullptr){
+            cout<<"List underflow"<<endl;
+            return;
+        }
+
+        head = head->next;
+        size--;
+
+        if(head == nullptr){
+            tail = nullptr;
+        }
+    }
 
     // 1 marks
-    int view_last(){}
+    int view_last(){
+        if(tail==nullptr){
+            cout<<"List empty"<<endl;
+            return -1;
+        }
+
+        return tail->data;
+    }
 
     // 1 marks
-    int view_front(){}
+    int view_front(){
+        if(head == nullptr){
+            cout<<"List empty"<<endl;
+            return -1;
+        }
+
+        return head->data;
+    }
 
     // 3 marks
-    void display_lst(){}
+    void display_lst(){
+        Node *p = head;
+        while(p!=nullptr){
+            cout<<p->data<<" ";
+            p = p->next;
+        }
+
+        cout<<endl;
+    }
 
     // Edit ends here
+    // int search_ele(){}
     // void add_at_idx(int ele, int idx){}
 };
 
