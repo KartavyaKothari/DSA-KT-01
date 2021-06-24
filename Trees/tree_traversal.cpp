@@ -20,6 +20,24 @@ void inorder(Node *root){
     inorder(root->right);
 }
 
+void inorder_iter(Node *root){
+    stack<Node *> stk;
+    Node *p = root;
+
+    while(p!=nullptr || !stk.empty()){
+        while(p!=nullptr){
+            stk.push(p);
+            p = p->left;
+        }
+        p = stk.top();
+        stk.pop();
+        
+        cout<<p->data<<" ";
+        
+        p = p->right;
+    };
+}
+
 void postorder(Node *root){
     if(root == nullptr) return;
     

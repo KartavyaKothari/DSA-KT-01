@@ -70,6 +70,16 @@ class BST{
         return root;
     }
 
+    bool node_present(Node *root, int ele){
+        if(root == nullptr){
+            return false;
+        }
+
+        if(ele <= root->data){
+            return node_present(root->left,ele);
+        }else return node_present(root->right,ele);
+    }
+
     public:
     BST(){
         root = nullptr;
@@ -112,7 +122,13 @@ class BST{
     //     }
     // }
 
-    bool is_present(int ele){}
+    void is_present(int ele){
+        if(node_present(root,ele)){
+            cout<<ele<<" present"<<endl;
+        }else{
+            cout<<ele<<" not present"<<endl;
+        }
+    }
 
     void inorder(){
         if(root==nullptr){
@@ -150,12 +166,14 @@ int main(){
     vector<int> arr = {56,33,24,56,98,11,45,69,6,23,45,77,43};
 
     for(int ele : arr){
-        tree.insert_ele(ele);
+        tree.insert(ele);
     }
 
     tree.inorder();
     tree.preorder();
     tree.postorder();
+
+    tree.is_present(23);
 
     return 0;
 }
