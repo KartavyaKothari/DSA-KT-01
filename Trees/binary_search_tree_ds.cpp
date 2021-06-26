@@ -71,13 +71,11 @@ class BST{
     }
 
     bool node_present(Node *root, int ele){
-        if(root == nullptr){
-            return false;
-        }
+        if(root == nullptr) return false;
+        if(ele == root->data) return true;
 
-        if(ele <= root->data){
-            return node_present(root->left,ele);
-        }else return node_present(root->right,ele);
+        if(ele < root->data) return node_present(root->left,ele);
+        else return node_present(root->right,ele);
     }
 
     public:

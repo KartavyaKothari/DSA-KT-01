@@ -16,7 +16,7 @@ bool binary_search_rec(vector<int> &arr, int a, int b, int ele){
 bool binary_search_itr(vector<int> &arr, int ele){
     int a = 0, b = arr.size()-1, m;
 
-    while(a<b){
+    while(a<=b){
         m = (a+b)/2;
         if(arr[m]==ele) return true;
         if(ele < arr[m]) b = m-1;
