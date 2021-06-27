@@ -40,6 +40,8 @@ class BST{
     }
 
     // Insersion rec method 1
+    // This method is wrong and will not work
+    // Credits:: Arun sharma
     // void insert_ele(Node *root,int ele){
     //     if(root == nullptr){
     //         root = new Node(ele);
@@ -84,13 +86,9 @@ class BST{
     }
 
     // Recursive insert M1
-    // void insert(int ele){
-    //     insert_ele(root,ele);
-    // }
-
-    // Recursive insert M2
     void insert(int ele){
         root = insert_ele(root,ele);
+        // insert_ele(root,ele);
     }
 
     // Iterative code for inserting
@@ -161,7 +159,7 @@ class BST{
 
 int main(){
     BST tree;
-    vector<int> arr = {56,33,24,56,98,11,45,69,6,23,45,77,43};
+    vector<int> arr = {5,2,4,3,1,6};
 
     for(int ele : arr){
         tree.insert(ele);
@@ -171,7 +169,7 @@ int main(){
     tree.preorder();
     tree.postorder();
 
-    tree.is_present(23);
+    // tree.is_present(23);
 
     return 0;
 }
