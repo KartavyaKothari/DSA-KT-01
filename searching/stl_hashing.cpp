@@ -2,6 +2,7 @@
 using namespace std;
 
 int main(){
+    map<int,bool> h;
     map<string,string> phonebook;
     // unordered_map<string,string> phonebook;
 

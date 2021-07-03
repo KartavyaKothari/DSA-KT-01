@@ -23,15 +23,20 @@ class Hash{
 };
 
 int main(){
+    // map<int,bool> h;
     Hash h(4000,4100);
 
     h.insert(4040);
+    // h[4040] = true;
     h.insert(4100);
+    // h[4100] = true;
     h.insert(4004);
+    // h[4004] = true;
 
     int ele;
     cin>>ele;
 
+    // if(h.find(ele) != h.end()){
     if(h.is_present(ele)){
         cout<<ele<<" is present"<<endl;
     }else{
