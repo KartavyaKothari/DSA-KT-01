@@ -29,7 +29,7 @@ void bfs(unordered_map<int,vector<int>> &adj){
         for(int child : adj[curr]){
             if(!visited[child]){
                 nodes.push(child);
-                visited[curr] = true;
+                visited[child] = true;
             }
         }
     }
