@@ -17,6 +17,7 @@ void selection_sort(vector<int> &arr){
                 min_in = j;
             }
         }
+        // min_in = distance(arr.begin(),min_element(arr.begin()+i+1,arr.end()));
         swap(arr[i],arr[min_in]);
     }
 }
