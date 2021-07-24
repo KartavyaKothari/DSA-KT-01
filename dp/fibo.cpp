@@ -2,6 +2,7 @@
 using namespace std;
 
 // 1 1 2 3 5 8 13 21 34 
+//Memoization
 
 int fibo(int n, unordered_map<int,int> &dp){
     if(n==1 || n==2) return 1;
